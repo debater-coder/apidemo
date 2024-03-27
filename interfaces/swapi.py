@@ -1,3 +1,8 @@
+import os
+import random
+import requests
+import json
+
 
 def contact(person):
     name = person["name"].lower().split()

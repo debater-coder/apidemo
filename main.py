@@ -1,5 +1,6 @@
 import requests
 
+from interfaces.openai import Chat
 from interfaces.swapi import cache_available, fetch_people, json_from_path, contact
 
 print("Star Wars recruiting system\n")
@@ -31,7 +32,7 @@ for index, person in enumerate(people):
         starships = [json_from_path(uri) for uri in person['starships']]
         print(f"\tVehicles: {', '.join([vehicle['name'] for vehicle in vehicles])}")
         print(f"\tStarships: {', '.join([starship['name'] for starship in starships])}")
-    except:
+    except requests.exceptions.RequestException:
         print("\tExperience data not available")
     print('-' * 80)
 
@@ -45,4 +46,19 @@ while True:
     if input(f"Are you sure you want to continue with a phone interview with {person['name']}? (y/n) ")[0].lower() == 'y':
         break
 
+job = input("Enter job description: ")
 print(f"\nCalling {person['name']}...")
+
+chat = Chat("http://localhost:1234/", f"You are {person['name']} and are in a phone interview for a job of '{job}'. "
+                                      f"You are from the Star Wars universe. Stay in character and answer all "
+                                      f"questions as the character would. Keep your responses short, succinct and "
+                                      f"professional. Do not ramble on about stories unless asked to.")
+
+print(f"You are in a phone call with {person['name']}. All messages hereafter will be sent over the phone.")
+
+try:
+    while msg := input("> "):
+        print(chat.send_message(msg))
+except requests.exceptions.RequestException:
+    print(f"{person['name']} hung up.")
+
