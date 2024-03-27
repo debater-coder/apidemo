@@ -1,7 +1,6 @@
 import json
 import os.path
 import random
-import urllib.parse
 import requests
 
 
