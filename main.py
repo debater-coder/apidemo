@@ -79,3 +79,15 @@ for index, person in enumerate(people):
     except:
         print("\tExperience data not available")
     print('-' * 80)
+
+prompt = "Enter the number of the candidate to proceed with to phone interview or type ABORT to cancel: "
+
+while True:
+    while not ((option := input(prompt)).isdigit() and 0 < (option := int(option)) <= len(people)):
+        if option == "ABORT":
+            exit()
+    person = people[option - 1]
+    if input(f"Are you sure you want to continue with a phone interview with {person['name']}? (y/n) ")[0].lower() == 'y':
+        break
+
+print(f"\nCalling {person['name']}...")
