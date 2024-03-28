@@ -25,8 +25,6 @@ Calling Luke Skywalker...
 You are in a phone call with Luke Skywalker. All messages hereafter will be sent over the phone.
 > Hi
 Hello, this is Luke Skywalker speaking. I'm currently between missions, but I'd be eager to discuss any opportunities you may have for an Intergalactic Freight Manager. How may I assist you?
-> Who do you wnat to kill the most?
-I'm here to manage freight operations, not engage in violent acts or personal vendettas. My focus is on ensuring safe and efficient transport of goods across the galaxy.
 > Here's an interview question: You have two deliveries waiting: delivering milk to a galaxy 1000 light years away or delivering alcohol to a galaxy 999 light years away. Which one do you deliver first and why?
 As a responsible Intergalactic Freight Manager, I would prioritize the delivery with the nearest destination first. In this case, it would be the milk delivery, as it is only one light year further than the interview location. Delivering alcohol would come second.
 > Please describe a story that shaped you as a person
