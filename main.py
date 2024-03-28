@@ -25,7 +25,14 @@ print(f"{len(people)} people meet your requirements")
 print('-' * 80)
 
 for index, person in enumerate(people):
-    print(f"[{index + 1}] {person['name']} | Contact: {contact(person)}")
+    try:
+        if len(person["species"]):
+            species = json_from_path(person["species"][0])["name"]
+        else:
+            species = "Unknown"
+    except requests.exceptions.RequestException:
+        species = "Species data not available"
+    print(f"[{index + 1}] {person['name']} | Contact: {contact(person)} | Species: {species}")
     print("Experience:")
     try:
         vehicles = [json_from_path(uri) for uri in person['vehicles']]
